@@ -19,7 +19,7 @@ with open('/tmp/newpostings.mail','w+') as new_posts_file:
         #new post
         if posting_url not in old_posts:
             #insert into text file
-            with open(old_postings,'a'):
+            with open(old_postings,'a') as oldies:
                 oldies.write(posting_url)
             new_posts.append(posting_url)
     new_posts_file.write("Subject: New Craigslist Postings \n"+new_posts.join("\n")+"\n")
