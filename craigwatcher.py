@@ -31,7 +31,6 @@ for post in post_soup.find_all("p","row"):
 
     msg['Subject'] = "New Craigslist postings"
     msg['from']    = "Craigwatcher"
-    msg['to']      = "Interested parties"
 
     s = smtplib.SMTP('localhost')
     s.sendmail("Craigwatcher@ec2-23-20-227-25.compute-1.amazonaws.com",["tossrock@gmail.com","jeffawang@gmail.com","adamrhine@gmail.com"],msg.as_string())
