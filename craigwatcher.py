@@ -27,12 +27,12 @@ for post in post_soup.find_all("p","row"):
             oldies.write(posting_url+"\n")
         new_posts.append((title+": "+price+" || "+posting_url))
         print posting_url
-
-msg = MIMEText("\n".join(new_posts)+"\n")
-recipients = ",".join(["tossrock@gmail.com","jeffawang@gmail.com","adamrhine@gmail.com"]) 
-msg['Subject'] = "New Craigslist postings"
-msg['from']    = "Craigwatcher"
-msg['to']      = recipients
-s = smtplib.SMTP('localhost')
-s.sendmail("Craigwatcher@ec2-23-20-227-25.compute-1.amazonaws.com",recipients,msg.as_string())
-s.quit()
+if len(new_posts) > 0:
+    msg = MIMEText("\n".join(new_posts)+"\n")
+    recipients = ",".join(["tossrock@gmail.com","jeffawang@gmail.com","adamrhine@gmail.com"]) 
+    msg['Subject'] = "New Craigslist postings"
+    msg['from']    = "Craigwatcher"
+    msg['to']      = recipients
+    s = smtplib.SMTP('localhost')
+    s.sendmail("Craigwatcher@ec2-23-20-227-25.compute-1.amazonaws.com",recipients,msg.as_string())
+    s.quit()
