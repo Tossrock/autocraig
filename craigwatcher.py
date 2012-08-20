@@ -22,7 +22,7 @@ with open('/tmp/newpostings.mail','w+') as new_posts_file:
             with open(old_postings,'a') as oldies:
                 oldies.write(posting_url)
             new_posts.append(posting_url)
-    new_posts_file.write("Subject: New Craigslist Postings \n"+new_posts.join("\n")+"\n")
+    new_posts_file.write("Subject: New Craigslist Postings \n"+"\n".join(new_posts)+"\n")
     os.system('sendmail tossrock@gmail.com < /tmp/newpostings.mail')
     os.system('sendmail jeffawang@gmail.com < /tmp/newpostings.mail')
     os.system('sendmail adamrhine@gmail.com < /tmp/newpostings.mail')
