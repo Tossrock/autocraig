@@ -34,5 +34,5 @@ msg['Subject'] = "New Craigslist postings"
 msg['from']    = "Craigwatcher"
 msg['to']      = "you"
 s = smtplib.SMTP('localhost')
-s.sendmail("Craigwatcher@ec2-23-20-227-25.compute-1.amazonaws.com",["tossrock@gmail.com","jeffawang@gmail.com","adamrhine@gmail.com"],msg.as_string())
+s.sendmail("Craigwatcher@ec2-23-20-227-25.compute-1.amazonaws.com",",".join(["tossrock@gmail.com","jeffawang@gmail.com","adamrhine@gmail.com"]),msg.as_string())
 s.quit()
