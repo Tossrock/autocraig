@@ -29,10 +29,10 @@ for post in post_soup.find_all("p","row"):
         print posting_url
 if len(new_posts) > 0:
     msg = MIMEText("\n".join(new_posts)+"\n")
-    recipients = ",".join(["tossrock@gmail.com","jeffawang@gmail.com","adamrhine@gmail.com"]) 
+    recipients = ["tossrock@gmail.com","jeffawang@gmail.com","adamrhine@gmail.com"] 
     msg['Subject'] = "New Craigslist postings"
     msg['from']    = "Craigwatcher"
-    msg['to']      = recipients
+    msg['to']      = ",".join(recipients)
     s = smtplib.SMTP('localhost')
     s.sendmail("Craigwatcher@ec2-23-20-227-25.compute-1.amazonaws.com",recipients,msg.as_string())
     s.quit()
