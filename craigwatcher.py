@@ -14,7 +14,7 @@ with open(old_postings,'r') as old_posts_file:
 new_posts = []
 
 with open('/tmp/newpostings.mail','w+') as new_posts_file:
-    for post in play_soup.find_all("p","row"):
+    for post in post_soup.find_all("p","row"):
         posting_url = post.find("a")["href"].encode('ascii')
         #new post
         if posting_url not in old_posts:
