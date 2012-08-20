@@ -21,6 +21,7 @@ with open('/tmp/newpostings.mail','w+') as new_posts_file:
             #insert into text file
             with open(old_postings,'a') as oldies:
                 oldies.write(posting_url)
+            print posting_url
             new_posts.append(posting_url)
     new_posts_file.write("Subject: New Craigslist Postings \n"+"\n".join(new_posts)+"\n")
     os.system('sendmail tossrock@gmail.com < /tmp/newpostings.mail')
