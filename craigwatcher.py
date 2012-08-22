@@ -23,12 +23,12 @@ new_posts = []
 # Iterate through posts to find novelties.
 for post in post_soup.find_all('p','row'):
     # Retrieve the URL for the post.
-    posting_url = post.find('a')['href'].encode('ascii')
+    posting_url = post.find('a')['href'].encode('ascii','ignore')
     # See if it's new.
     if posting_url+'\n' not in old_posts:
         # It's new!  Gather its data.
-        price = post.find('span','itemph').text.encode('ascii')
-        title =  post.find('a').text.encode('ascii')
+        price = post.find('span','itemph').text.encode('ascii','ignore')
+        title =  post.find('a').text.encode('ascii','ignore')
         # Remember it for later.
         with open(old_postings,'a') as oldies:
             oldies.write(posting_url+'\n')
