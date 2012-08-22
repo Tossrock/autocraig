@@ -42,7 +42,7 @@ for post in post_soup.find_all('p','row'):
 # Finished searching.
 # Send out the new posts via email.
 if len(new_posts) > 0:
-    msg = MIMEText('\n'.join(new_posts)+'\n', 'html')
+    msg = MIMEText('<br />'.join(new_posts), 'html')
     recipients = ['tossrock@gmail.com','jeffawang@gmail.com','adamrhine@gmail.com'] 
     msg['Subject'] = 'New Craigslist postings'
     msg['from']    = 'Craigwatcher'
