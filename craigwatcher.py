@@ -33,7 +33,7 @@ for post in post_soup.find_all('p','row'):
         with open(old_postings,'a') as oldies:
             oldies.write(posting_url+'\n')
         # Format it all pretty-like
-        post_content = '{price} -- <a href="{url}">{title}</a>'.format(price=price, url=posting_url, title=title)
+        post_content = '{price} <a href="{url}">{title}</a>'.format(price=price, url=posting_url, title=title)
         new_posts.append(post_content)
 
         # Output for debugging
